@@ -7,14 +7,7 @@ RUN apt-get update
 
 WORKDIR /usr/src/app
 
-# git 설치
-RUN apt-get install -y git
-
-RUN apt-get install build-essential
-
-# Community-rewards 코드 받기
-RUN git clone https://github.com/JAVACAFE-STUDY/chainity-web.git
-WORKDIR /usr/src/app/chainity-web
+COPY package*.json ./
 
 RUN npm install
 RUN npm run webpack:prod
