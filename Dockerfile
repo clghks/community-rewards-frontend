@@ -22,6 +22,5 @@ RUN npm run webpack:prod
 # production stage
 FROM nginx:1.14.2 as production-stage
 COPY --from=build-stage /usr/src/app/chainity-web/build/www /usr/share/nginx/html
-COPY default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 3000
 CMD ["nginx", "-g", "daemon off;"]
